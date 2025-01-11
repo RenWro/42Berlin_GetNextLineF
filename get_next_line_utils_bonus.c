@@ -10,6 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Bonus Notes:
+** The bonus version of get_next_line is designed to handle multiple file 
+** descriptors simultaneously. Each file descriptor maintains its own static 
+** storage, allowing the function to correctly manage and return lines from 
+** multiple files or inputs without interference.
+
+** Note: The functions in get_next_line_utils_bonus.c are identical to those 
+** in get_next_line_utils.c. No modifications are needed, as these utility 
+** functions remain general-purpose and are reused for both the standard 
+** and bonus implementations.
+*/
+
 #include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
