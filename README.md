@@ -142,6 +142,28 @@ Why not use BUFFER_SIZE = 1024?
     Stack Overhead:
         A larger BUFFER_SIZE consumes more stack space with each call to get_next_line. This can lead to stack overflow issues on systems with limited memory.
 
+<h2>A bit more about File Descriptors</h2>
+
+To put it visually simple, this is what a File Descriptor does:
+There are three file descriptors created by default: 0, 1 and 2. 0 corresponds to the “keyboard file” in the kernel and 1 and 2 correspond to the “monitor file”. If we were to sketch all this on paper, it would look a bit like below:
+![image](https://github.com/user-attachments/assets/419b3574-7056-4e7a-b92f-2b8899981efa)
+
+These arrows, call them channels, have a special name: streams. Stream is an abstract name to make it easier for the programmer to visualize what is happening with the data. It’s easier to talk about stream of data than to talk about indices and the file structures in the kernel that those indices correspond to.
+
+Now the three default file descriptors we talked about earlier, have in fact been baptized with their own special names: stdin, stdout and stderr.
+
+![image](https://github.com/user-attachments/assets/64f7050f-8202-43e8-8850-b843af21986e)
+
+When a new process gets created, file descriptors 0, 1 and 2 are created automatically and mapped to stdin, stdout and stderr.
+
+Just because file descriptors 0, 1, 2 are standard it doesn’t mean that they are always going to correspond to stdin, stdout and stderr. Standard streams are as we think until the programmer decides it’s time to change things around. That is something that will be demonstrated. Bellow you see a visual representation of file descriptors and their connection with the kernel.
+
+ ![image](https://github.com/user-attachments/assets/db6cbbe3-c4e6-4e83-adae-7b661bef9737)
+
+This is how the processes look like if we assume that file descriptors are not altered in any way. The arrows show the flow of data. The keyboard and screen icons in the kernel are file structures of the special files. This was just a general intro to understand File Descriptors.
+
+
+
 <h2>How It Works in get_next_line</h2>
 
 A typical lifecycle of our static buffer:
@@ -217,4 +239,5 @@ https://velog.io/@ljiwoo59/getnextline
 https://www.educative.io/answers/what-is-a-buffer-in-c
 https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/
 https://www.educba.com/macros-in-c/
+https://linuxmeerkat.wordpress.com/2011/12/02/file-descriptors-explained/
 
