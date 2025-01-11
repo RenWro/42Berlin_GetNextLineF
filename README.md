@@ -6,7 +6,7 @@ The aim of this project is to make a function that returns a lineending with a n
 ![image](https://github.com/user-attachments/assets/0effd645-7751-4350-a69f-51dd82640b5b)
 
 
-Reading a line on a fd is way often a tedious activity. This task is crucial to understand for a future programmer since much of the time is based on manipulating files for data management and persistence. This project consists of coding a function that returns one line at a time from a text file.
+The purpose of this project is to read a line on a fd. This task is crucial to understand for a programmer since much of the time is based on manipulating files for data management and persistence. This project consists of coding a function that returns one line at a time from a text file.
 
 Get_Next_Line Submission
 
