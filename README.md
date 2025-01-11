@@ -91,6 +91,18 @@ Compliling and executing:
 ---
 <h1>About it all</h1>
 
+What is BUFFER_SIZE?
+
+The BUFFER_SIZE defines the number of bytes that will be read from the file (or file descriptor) in each call to the read() function. It directly influences:
+
+    The number of system calls (read()) performed.
+    The size of the temporary memory allocated for each read operation.
+
+Stack Compatibility:
+
+A smaller BUFFER_SIZE reduces the risk of memory overflow on the stack (especially on systems with limited memory), as larger buffers occupy more temporary space.
+
+
 Static Buffer as a memory keeper
 
 In this get_next_line function, we use a static variable like this
