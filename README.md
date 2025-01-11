@@ -67,7 +67,7 @@ It is particularly useful in ensuring your program adheres to good memory manage
 
 To use it, the following code is useful:
 
-    gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
+    cc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
 
 Followed by
 
