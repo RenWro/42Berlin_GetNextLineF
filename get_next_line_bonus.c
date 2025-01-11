@@ -10,6 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Differences in the Bonus Version:
+**
+** 1. Support for Multiple File Descriptors:
+**    - The bonus version allows `get_next_line` to handle multiple file 
+**      descriptors simultaneously by using a static array `keep[1024]`.
+**    - Each file descriptor has its own independent storage, ensuring that 
+**      reading from one file does not interfere with another.
+**
+** 2. Static Array for File Descriptor Management:
+**    - Instead of a single static pointer (`keep`), the bonus version uses a 
+**      static array (`keep[1024]`) to store data for up to 1024 file 
+**      descriptors. This is necessary for handling multiple files or inputs.
+**
+** 3. No Changes in Core Logic:
+**    - The core operations, such as reading from the file descriptor, 
+**      extracting a line, and updating the storage, remain consistent with the 
+**      standard version. The differences are primarily in handling multiple 
+**      file descriptors and ensuring independent data management.
+*/
+
 #include "get_next_line_bonus.h"
 
 int	ft_checker(char *str)
