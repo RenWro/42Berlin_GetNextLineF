@@ -10,6 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Description of the functions in this file:
+**
+** size_t ft_strlen(const char *str):
+** Calculates the length of the given string `str`. If the string is NULL, it 
+** returns 0. This function is used throughout the program to handle dynamic 
+** string operations.
+**
+** char *ft_strdup(const char *str):
+** Allocates memory and creates a duplicate of the given string `str`. The 
+** function returns the duplicated string or NULL if the allocation fails.
+**
+** char *ft_substr(char const *s, unsigned int start, size_t len):
+** Extracts a substring from the string `s`, starting at the `start` index and 
+** copying up to `len` characters. If the starting index is out of bounds, it 
+** returns an empty string. The result is dynamically allocated.
+**
+** void *ft_memmove(void *dst, const void *src, size_t len):
+** Copies `len` bytes from the memory area `src` to `dst`. It handles overlapping 
+** memory areas correctly, ensuring that data is not corrupted during the copy 
+** process. Returns the destination pointer.
+**
+** char *ft_strjoin(const char *s1, const char *s2):
+** Concatenates two strings, `s1` and `s2`, into a new dynamically allocated 
+** string. Frees the memory of the first string (`s1`) after concatenation. 
+** Returns the concatenated string or NULL if memory allocation fails.
+*/
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
