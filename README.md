@@ -38,11 +38,11 @@ Using The Program
 
 Compile the program:
 
-    gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c
+    cc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c
 
 Or compile the bonus:
 
-    gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c
+    cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c
 
 
 To run the program:
@@ -84,7 +84,7 @@ One of the main features of the bonus is support for multiple file descriptors. 
 
 Compliling and executing:
 
-        gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
+        cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
 
         ./gnl_bonus
 
