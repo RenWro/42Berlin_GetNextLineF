@@ -10,6 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** BUFFER_SIZE defines the number of bytes to be read from the file (or file 
+** descriptor) with each call to the `read()` function. It determines the 
+** chunk size for each reading operation, directly impacting:
+**  - The number of system calls (`read()`) needed.
+**  - The amount of temporary memory allocated for processing each read.
+** In this project, a small BUFFER_SIZE, like 32, was chosen to minimize
+** memory usage and ensure compatibility with systems with limited stack space.
+
+** The <fcntl.h> library provides file control options, constants, and
+** declarations used for low-level file operations. It is required for
+** functions like `open()` and constants such as `O_RDONLY`, which
+** specifies that the file should be opened in read-only mode.
+*/
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
