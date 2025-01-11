@@ -40,9 +40,56 @@ Compile the program:
 
     gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
 
+Or compile the bonus:
+
+    gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
+
+
 To run the program:
 
     ./gnl text1.txt
+
+or
+    
+    ./gnl text2.txt
+
+
+What is Valgrind?
+
+Valgrind is a powerful debugging and profiling tool primarily used for memory-related issues in programs written in C and C++. It helps developers detect:
+
+    Memory Leaks: Memory that is allocated but never freed.
+    Invalid Memory Access: Accessing memory that was already freed or not allocated.
+    Uninitialized Variable Use: Using variables that were not properly initialized.
+    Thread and Concurrency Issues: Detecting race conditions in multithreaded programs.
+
+It is particularly useful in ensuring your program adheres to good memory management practices and prevents crashes.
+
+To use it, the following code is useful:
+
+    gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
+
+Followed by
+
+    valgrind --leak-check=full ./gnl text1.txt
+
+or
+
+    valgrind --leak-check=full ./gnl_bonus text1.txt
+
+
+Testing with Multiple File Descriptors (Bonus)
+
+One of the main features of the bonus is support for multiple file descriptors. You can test this functionality by modifying your main_bonus.c to open more than one file simultaneously. Example:
+
+Compliling and executing:
+
+        gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
+
+        ./gnl_bonus
+
+---
+<h1>About it all</h1>
 
 Static Buffer as a memory keeper
 
@@ -104,6 +151,22 @@ How that works?
     Returning the Line: When it finds a newline (or reaches the end of the file), it says "Aha! Here's a complete line!" and returns it to you.
     Remembering Where It Left Off: Here's where it gets clever. It remembers where it stopped, so the next time you call it, it starts from there. It's like using a bookmark in a really long book.
     
+<h2>Why is <fcntl.h> important in get_next_line?</h2>
+
+In the get_next_line project, <fcntl.h> is typically included because it provides file Access Modes: Constants like O_RDONLY (read-only), O_WRONLY (write-only), and O_RDWR (read and write).
+
+
+How does it work in get_next_line?
+
+In get_next_line, the open() function (declared in <fcntl.h>) is commonly used to open a file and obtain its file descriptor (fd). This fd is then passed to get_next_line() to read the file line by line.
+
+#include <fcntl.h> is essential for:
+
+- Defining constants like O_RDONLY, O_WRONLY, O_CREAT, etc.
+- Using system-level file manipulation functions like open().
+
+Without it, your program wouldn’t compile if you’re using open() or similar low-level file operations.
+
 
 <h1>Resources</h1>
 
