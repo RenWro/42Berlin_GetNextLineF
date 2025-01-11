@@ -121,7 +121,28 @@ This buffer isn't just any ordinary variable. Let's break it down:
 
     Handling Partial Reads: Sometimes, we might read more than one line into our buffer. The static variable allows us to keep that extra data for the next function call, ensuring we don't lose any information.
 
-How It Works in get_next_line
+Why do we use keep[1024]?
+
+    Management of Multiple File Descriptors (FDs):
+        keep[1024] is a static array of pointers, where each index stores the unprocessed data associated with a specific FD.
+        Each FD is independent, ensuring that reading from one file does not interfere with others.
+
+    File Descriptor Limitations:
+        The operating system generally limits the maximum number of file descriptors a process can open. On UNIX systems, the default is 1024, but this can be configured. Therefore, keep[1024] is sufficient for most cases.
+
+Why not use BUFFER_SIZE = 1024?
+
+    Temporary Memory vs. Static Storage:
+        BUFFER_SIZE determines the amount of data read in each read() call. With a BUFFER_SIZE of 1024, the read() function allocates more temporary memory, which can be inefficient for small files.
+        In contrast, keep[1024] is static and serves as persistent storage between get_next_line calls.
+
+    Performance with Small Files:
+        A smaller BUFFER_SIZE (like 32) reduces memory waste when dealing with small files or short lines. Conversely, BUFFER_SIZE = 1024 might result in reading large blocks of data that won't be immediately used.
+
+    Stack Overhead:
+        A larger BUFFER_SIZE consumes more stack space with each call to get_next_line. This can lead to stack overflow issues on systems with limited memory.
+
+<h2>How It Works in get_next_line</h2>
 
 A typical lifecycle of our static buffer:
 
