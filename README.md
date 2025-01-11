@@ -38,20 +38,20 @@ Using The Program
 
 Compile the program:
 
-    gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
+    gcc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c
 
 Or compile the bonus:
 
-    gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
+    gcc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c
 
 
 To run the program:
 
-    ./gnl text1.txt
+    ./a.out text1.txt
 
 or
     
-    ./gnl text2.txt
+    ./a.out text2.txt
 
 
 What is Valgrind?
