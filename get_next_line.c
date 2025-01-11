@@ -10,6 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Description of the functions in this file:
+**
+** int ft_check(char *str):
+** This function checks for the presence of a newline character ('\n') in the 
+** given string `str`. If found, it returns the index of the newline. Otherwise, 
+** it returns -42, indicating the absence of a newline. It's also used to handle 
+** null strings gracefully.
+**
+** char *ft_putline(char *keep):
+** Extracts the current line from the string `keep`. If there is no newline, it 
+** duplicates the entire string. Otherwise, it allocates memory for the line 
+** (up to the first newline, inclusive) and returns it. Memory for the resulting 
+** string is dynamically allocated and must be freed by the caller.
+**
+** char *ft_backup(char *keep):
+** Creates a backup of the remaining content after the newline in the string 
+** `keep`. If no newline is found or the string ends immediately after the 
+** newline, it frees `keep` and returns NULL. Otherwise, it returns the new 
+** backup string with the portion of `keep` after the newline.
+**
+** char *read_and_store(int fd, char *keep):
+** Reads from the file descriptor `fd` and appends the read data to `keep`. The 
+** function continues reading until a newline is found or the end of the file is 
+** reached. If any read error occurs, it frees `keep` and returns NULL. This 
+** function ensures that the entire file or buffer is read while maintaining 
+** existing content in `keep`.
+**
+** char *get_next_line(int fd):
+** The main function to retrieve the next line from the file descriptor `fd`. It 
+** manages static storage (`keep`) to save unread data between calls. It uses 
+** `read_and_store` to read new data, `ft_putline` to extract the next line, and 
+** `ft_backup` to update `keep` for the remaining content. Returns the next line 
+** or NULL if no more data is available.
+*/
+
 #include "get_next_line.h"
 
 int	ft_check(char *str)
