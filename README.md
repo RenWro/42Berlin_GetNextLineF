@@ -42,7 +42,7 @@ Compile the program:
 
 Or compile the bonus:
 
-    cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c
+    cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main.c
 
 
 To run the program:
