@@ -67,15 +67,15 @@ It is particularly useful in ensuring your program adheres to good memory manage
 
 To use it, the following code is useful:
 
-    cc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c -o gnl
+    cc -Wall -Wextra -Werror -g get_next_line.c get_next_line_utils.c main.c
 
 Followed by
 
-    valgrind --leak-check=full ./gnl text1.txt
+    valgrind --leak-check=full ./a.out text1.txt
 
 or
 
-    valgrind --leak-check=full ./gnl_bonus text1.txt
+    valgrind --leak-check=full ./a.out text1.txt
 
 
 Testing with Multiple File Descriptors (Bonus)
@@ -84,9 +84,9 @@ One of the main features of the bonus is support for multiple file descriptors. 
 
 Compliling and executing:
 
-        cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c -o gnl_bonus
+        cc -Wall -Wextra -Werror -g get_next_line_bonus.c get_next_line_utils_bonus.c main_bonus.c 
 
-        ./gnl_bonus
+        ./a.out
 
 ---
 <h1>About it all</h1>
