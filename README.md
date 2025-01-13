@@ -75,7 +75,7 @@ Followed by
 
 or
 
-    valgrind --leak-check=full ./a.out text1.txt
+    valgrind --leak-check=full --track-origins=yes ./a.out text1.txt text2.txt
 
 
 Testing with Multiple File Descriptors (Bonus)
